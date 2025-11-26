@@ -1,3 +1,9 @@
+/**
+ * Progressive Portfolio - Header Manager
+ * - Navigations
+ * - Consistency
+ */
+
 function headerManager() {
     const headerDiv = document.getElementById('HeaderManager');
     headerDiv.innerHTML = `
