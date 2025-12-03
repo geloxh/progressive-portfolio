@@ -9,7 +9,7 @@ function footerManager() {
     const footer = document.querySelector('.footer');
     footer.innerHTML = `
         <div class="footer-content">
-            <p>&copy; ${new Date().getFullYear()} geloxh. Crafted with passion.</p>
+            <p>&copy; ${new Date().getFullYear()} geloxh. Self-taught developer.</p>
             <div class="social-links">
                 <a href="#" aria-label="GitHub">GitHub</a>
                 <a href="#" aria-label="LinkedIn">LinkedIn</a>

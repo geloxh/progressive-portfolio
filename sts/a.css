@@ -13,43 +13,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.nav-brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #fff;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-menu a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.nav-menu a:hover {
-    color: #4ec7f3;
-}
-
 /* Hero Section */
 .hero-section {
     position: relative;
@@ -317,14 +280,6 @@ canvas {
 
 .contact-btn:hover {
     transform: translateY(-2px);
-}
-
-/* Footer */
-.footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 2rem;
 }
 
 /* Animations */
