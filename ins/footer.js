@@ -15,7 +15,7 @@ class footerManager {
         this.footerHTML();
     }
 
-    headerCSS() {
+    footerCSS() {
         const css = `
             .footer{background:#f8f9fa;color:#6b7280;padding:1.5rem 0 2rem}
             .footer-container{max-width:1200px;margin:0 auto;padding:0 1rem}
@@ -45,7 +45,7 @@ class footerManager {
         document.head.appendChild(style);
     }
 
-    headerHTML() {
+    footerHTML() {
         const html = `
             <div class="footer-container">
                 <div class="footer-main">
