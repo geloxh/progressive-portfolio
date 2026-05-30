@@ -1,0 +1,5 @@
+backend-portfolio/node_modules
+backend-portfolio/.env
+
+frontend-portfolio/node_modules
+frontend-potfolio/.env
