@@ -3,17 +3,27 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const helmet = require('helmet')
 const rateLimit = require('express-rate-limit')
+
+const errorHandler = require('./middleware/errorHandler')
+
 require('dotenv').config()
 
 const app = express()
 
+// HTTPS - handled by livehost in production
+
+// CORS - only allow ythe frontend
 app.use(cors({ 
     origin: process.env.CLIENT_URL || 'http://localhost:5173',
     methods: ['GET', 'POST'],
 }))
 
+// Security headers - blocks XSS, clickjacking, MIME sniffing
 app.use(helmet())
 
+/**
+ * Rate limiting - Max 50 requests per 15 min per IP
+ */
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 50,
@@ -21,11 +31,22 @@ const limiter = rateLimit({
 })
 app.use('/api/', limiter)
 
-app.use(express.json())
+const contactLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000,
+    max: 5,
+    message: { error: 'Too many messages sent.' },
+})
+app.use('/api/contact', contactLimiter)
+
+// Prevent huge payloads
+app.use(express.json({ limit: '10kb' }))
 
 app.use('/api/projects', require('./Routes/Projects'))
 app.use('/api/skills', require('./Routes/Skills'))
 app.use('/api/contact', require('./Routes/Contact'))
+
+// Middleware - ErrorHandler
+app.use(errorHandler)
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
