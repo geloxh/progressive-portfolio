@@ -12,7 +12,7 @@ const app = express()
 
 // HTTPS - handled by livehost in production
 
-// CORS - only allow ythe frontend
+// CORS - only allow the frontend
 app.use(cors({ 
     origin: process.env.CLIENT_URL || 'http://localhost:5173',
     methods: ['GET', 'POST'],
@@ -31,19 +31,19 @@ const limiter = rateLimit({
 })
 app.use('/api/', limiter)
 
-const contactLimiter = rateLimit({
+const ContactLimiter = rateLimit({
     windowMs: 60 * 60 * 1000,
     max: 5,
     message: { error: 'Too many messages sent.' },
 })
-app.use('/api/contact', contactLimiter)
+app.use('/Api/Contact', ContactLimiter)
 
 // Prevent huge payloads
 app.use(express.json({ limit: '10kb' }))
 
-app.use('/api/projects', require('./Routes/Projects'))
-app.use('/api/skills', require('./Routes/Skills'))
-app.use('/api/contact', require('./Routes/Contact'))
+app.use('/Api/Projects', require('./Routes/Projects'))
+app.use('/Api/Skills', require('./Routes/Skills'))
+app.use('/Api/Contact', require('./Routes/Contact'))
 
 // Middleware - ErrorHandler
 app.use(ErrorHandler)
