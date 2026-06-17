@@ -1,4 +1,4 @@
-const router = require('express').Router()
+const Router = require('express').Router()
 const Project = require('../models/Project')
 
 router.get('/', async (req, res) => {
@@ -12,4 +12,4 @@ router.post('/', async (req, res) => {
     res.status(201).json(project)
 })
 
-module.exports = router
+module.exports = Router

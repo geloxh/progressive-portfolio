@@ -1,4 +1,4 @@
-const router = require('express').Router()
+const Router = require('express').Router()
 const Message = require('../Models/Message')
 
 router.post('/', async (req, res) => {
@@ -7,4 +7,4 @@ router.post('/', async (req, res) => {
     res.status(201).json({ success: true })
 })
 
-module.exports = router
+module.exports = Router

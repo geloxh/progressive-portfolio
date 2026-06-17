@@ -4,7 +4,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 const rateLimit = require('express-rate-limit')
 
-const errorHandler = require('./middleware/errorHandler')
+const ErrorHandler = require('./middleware/ErrorHandler')
 
 require('dotenv').config()
 
@@ -46,7 +46,7 @@ app.use('/api/skills', require('./Routes/Skills'))
 app.use('/api/contact', require('./Routes/Contact'))
 
 // Middleware - ErrorHandler
-app.use(errorHandler)
+app.use(ErrorHandler)
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {

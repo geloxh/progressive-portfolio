@@ -1,15 +1,15 @@
-const Project = require('../models/Project')
+const Project = require('../Models/Project')
 
-const projectService = {
-
-  getAll: async () => {
+const ProjectService = {
+  
+  getAll: async() => {
     return await Project.find().sort({ createdAt: -1 })
   },
 
   getById: async (id) => {
     const project = await Project.findById(id)
     if (!project) {
-      const err = new Error('Project not found')
+      const err = new Error('Project not found.')
       err.status = 404
       throw err
     }
@@ -23,14 +23,14 @@ const projectService = {
 
   update: async (id, data) => {
     return await Project.findByIdAndUpdate(id, data, {
-      new: true,           // return updated doc
+      new: true, // return updated doc
       runValidators: true, // run schema validators
     })
   },
-
+  
   delete: async (id) => {
     return await Project.findByIdAndDelete(id)
   },
 }
 
-module.exports = projectService
+module.exports = ProjectService
