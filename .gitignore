@@ -1,5 +1,6 @@
 backend-portfolio/node_modules
 backend-portfolio/.env
+backend-portfolio/Server/SeedAdmin.js
 
 frontend-portfolio/node_modules
 frontend-potfolio/.env
