@@ -38,6 +38,13 @@ const ContactLimiter = rateLimit({
 })
 app.use('/Api/Contact', ContactLimiter)
 
+const LoginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 5,
+    message: { error: 'Too many login attempts, try again later.' },
+})
+app.use('/Api/Auth/Login', LoginLimiter)
+
 // Prevent huge payloads
 app.use(express.json({ limit: '10kb' }))
 
