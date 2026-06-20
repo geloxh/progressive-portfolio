@@ -44,6 +44,7 @@ app.use(express.json({ limit: '10kb' }))
 app.use('/Api/Projects', require('./Routes/Projects'))
 app.use('/Api/Skills', require('./Routes/Skills'))
 app.use('/Api/Contact', require('./Routes/Contact'))
+app.use('/Api/Auth', require('./Routes/Auth'))
 
 // Middleware - ErrorHandler
 app.use(ErrorHandler)
