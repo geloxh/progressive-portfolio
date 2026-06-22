@@ -29,6 +29,16 @@ export default function AdminDashbard({ token }) {
                 placeholder="title"
                 onChange={e => setForm({ ...form, title: e.target.value })}
             />
+            <textarea 
+                placeholder="Description"
+                onChange={e => setForm({ ...form, description: e.target.value })}
+            />
+            <input
+                placeholder="Tech stack (comma separated)"
+                onChange={e => setForm({ ...form, techStack: e.target.value })}
+            />
+            <button type="submit">Add project</button>
+            {status && <p>{status}</p>}
         </form>
     )
 }
