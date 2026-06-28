@@ -52,6 +52,7 @@ app.use('/Api/Projects', require('./Routes/Projects'))
 app.use('/Api/Skills', require('./Routes/Skills'))
 app.use('/Api/Contact', require('./Routes/Contact'))
 app.use('/Api/Auth', require('./Routes/Auth'))
+app.use('/Api/Gallery', require('./Routes/Gallery'))
 
 // Middleware - ErrorHandler
 app.use(ErrorHandler)
