@@ -69,10 +69,10 @@ export default function Certifications() {
 
                         {cert.credentialUrl && (
                             <a
-                            href={cert.credentialUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="cert-verify-link"
+                                href={cert.credentialUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="cert-verify-link"
                             >
                                 Verify credential
                             </a>
